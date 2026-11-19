@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sözleşme Onayı ve Hizmet Bilgilendirmesi</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  .card {
+    background: #ffffff;
+    max-width: 680px;
+    width: 100%;
+    padding: 36px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  }
+  .step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+  }
+  .step-active { color: #0f172a; }
+  h2 { margin-top: 0; font-size: 22px; color: #0f172a; }
+  p.subtitle { color: #475569; font-size: 14px; margin-top: -8px; margin-bottom: 20px; }
+
+  /* 1. Adım: Sözleşme */
+  .terms-box {
+    height: 220px;
+    overflow-y: auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155;
+    background: #f8fafc;
+    margin-bottom: 20px;
+  }
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+  }
+  .checkbox-item input { margin-top: 3px; width: 16px; height: 16px; cursor: pointer; }
+
+  /* 2. Adım: Bilgilendirme Kartları */
+  .info-banner {
+    background: #f8fafc;
+    border-left: 4px solid #0f172a;
+    padding: 14px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #334155;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .service-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .service-item {
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .service-title {
+    font-weight: 700;
+    font-size: 14.5px;
+    color: #0f172a;
+  }
+  .badge {
+    background: #dcfce7;
+    color: #166534;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 99px;
+  }
+  .service-desc {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* Butonlar */
+  .btn-primary {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #0f172a;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover:not(:disabled) { background-color: #1e293b; }
+  .btn-primary:disabled { background-color: #94a3b8; cursor: not-allowed; }
+  .btn-secondary {
+    background: transparent;
+    color: #475569;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 12px;
+    text-decoration: underline;
+  }
+  .hidden { display: none; }
+
+  @media (max-width: 580px) {
+    .service-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <!-- Adım Göstergesi -->
+  <div class="step-indicator">
+    <span id="ind1" class="step-active">1. Sözleşme ve Onay</span>
+    <span id="ind2">2. Hizmet ve Altyapı Bilgilendirmesi</span>
+  </div>
+
+  <!-- ADIM 1: OKUDUM ANLADIM SAYFASI -->
+  <div id="step1">
+    <h2>Hizmet Sözleşmesi ve Aydınlatma Metni</h2>
+    <p class="subtitle">Devam etmeden önce lütfen kullanım ve geçiş koşullarını okuyup onaylayınız.</p>
+
+    <div class="terms-box">
+      <h4>1. Taraflar ve Konu</h4>
+      <p>İşbu metin, web sitesi altyapı yenileme, alan adı (domain) değişikliği ve sunucu hizmetlerine ilişkin bilgilendirme ve kullanım şartlarını düzenler.</p>
+      <h4>2. Alan Adı (Domain) Değişikliği ve Yönlendirme</h4>
+      <p>Mevcut web sitesinin yeni alan adına geçişi, eski bağlantıların yeni adrese yönlendirilmesi ve kesintisiz yayın süreci teknik ekibimiz tarafından yönetilmektedir.</p>
+      <h4>3. Sınırsız Hosting, SSL ve SEO Altyapısı</h4>
+      <p>Web sitesi; sınırsız trafik ve disk alanına sahip sunucular üzerinde, ücretsiz 256-bit SSL güvenlik sertifikası ve arama motoru optimizasyonuna (SEO) tam uyumlu altyapı ile yayına alınır.</p>
+      <h4>4. Kişisel Verilerin Korunması (KVKK)</h4>
+      <p>6698 sayılı KVKK kapsamında tarafımıza iletilen bilgiler yalnızca hizmet kurulumu ve iletişim amacıyla işlenmekte olup üçüncü kişilerle paylaşılmamaktadır.</p>
+    </div>
+
+    <div class="checkbox-group">
+      <label class="checkbox-item">
+        <input type="checkbox" id="req1" onchange="validateStep1()">
+        <span><strong>Web Sitesi Hizmet Sözleşmesi</strong> ve <strong>Kullanım Koşulları</strong>'nı okudum, anladım ve kabul ediyorum. *</span>
+      </label>
+      <label class="checkbox-item">
+        <input type="checkbox" id="req2" onchange="validateStep1()">
+        <span><strong>KVKK Aydınlatma Metni</strong> kapsamında kişisel verilerimin işlenmesini onaylıyorum. *</span>
+      </label>
+    </div>
+
+    <button class="btn-primary" id="btnNext" disabled onclick="goToStep2()">Okudum, Anladım ve Devam Et &rarr;</button>
+  </div>
+
+  <!-- ADIM 2: HİZMET VE ALTYAPI BİLGİLENDİRME SAYFASI -->
+  <div id="step2" class="hidden">
+    <h2>Altyapı ve Hizmet Kapsamı Bilgilendirmesi</h2>
+    <p class="subtitle">Web siteniz için tanımlanan teknik özellikler ve geçiş detayları aşağıda yer almaktadır.</p>
+
+    <div class="info-banner">
+      <strong>Önemli Bilgilendirme:</strong> Mevcut web sitenizin <strong>alan adı (domain) değişikliği</strong> gerçekleştirilecek olup tüm içerik ve sayfalarınız veri kaybı yaşanmadan yeni altyapıya taşınacaktır.
+    </div>
+
+    <div class="service-list">
+      <div class="service-item">
+        <div class="service-header">
+          <span class="service-title">Domain (Alan Adı) Değişikliği</span>
+          <span class="badge">DAHİL</span>
+        </div>
+        <p class="service-desc">Yeni alan adınıza geçiş, DNS ayarları ve eski adresten 301 kalıcı yönlendirme işlemleri eksiksiz yapılır.</p>
+      </div>
+
+      <div class="service-item">
+        <div class="service-header">
+          <span class="service-title">Sınırsız Hosting Paketi</span>
+          <span class="badge">SINIRSIZ</span>
+        </div>
+        <p class="service-desc">Yüksek hızlı NVMe SSD disk alanı ve sınırsız aylık trafik kotası ile ziyaretçi yoğunluğunda kesinti yaşanmaz.</p>
+      </div>
+
+      <div class="service-item">
+        <div class="service-header">
+          <span class="service-title">Ücretsiz SSL Sertifikası</span>
+          <span class="badge">ÜCRETSİZ</span>
+        </div>
+        <p class="service-desc">256-Bit HTTPS güvenlik kilidi otomatik aktif edilir; tarayıcılarda "Güvenli Değil" uyarısı oluşmaz.</p>
+      </div>
+
+      <div class="service-item">
+        <div class="service-header">
+          <span class="service-title">SEO Garantili Altyapı</span>
+          <span class="badge">AKTİF</span>
+        </div>
+        <p class="service-desc">Google indeksleme kurallarına uygun temiz kod yapısı, mobil uyumluluk, meta etiketler ve site haritası (Sitemap) kurulumu sağlanır.</p>
+      </div>
+
+      <div class="service-item">
+        <div class="service-header">
+          <span class="service-title">Kurumsal E-Posta Hizmeti</span>
+          <span class="badge">DAHİL</span>
+        </div>
+        <p class="service-desc">Yeni alan adınıza özel <em>info@alanadiniz.com</em> uzantılı kurumsal mail hesapları tanımlanır.</p>
+      </div>
+
+      <div class="service-item">
+        <div class="service-header">
+          <span class="service-title">Yedekleme ve Teknik Destek</span>
+          <span class="badge">7/24</span>
+        </div>
+        <p class="service-desc">Haftalık otomatik sunucu yedeklemesi ve yayın sonrası teknik destek hizmeti paket kapsamında sunulur.</p>
+      </div>
+    </div>
+
+    <div class="checkbox-group">
+      <label class="checkbox-item">
+        <input type="checkbox" id="reqInfo" onchange="validateStep2()">
+        <span>Alan adı değişikliği ve yukarıda belirtilen hizmet kapsamı hakkındaki bilgilendirmeyi okudum, onaylıyorum.</span>
+      </label>
+    </div>
+
+    <button class="btn-primary" id="btnFinish" disabled onclick="finishProcess()">Bilgilendirmeyi Onayla ve Devam Et &rarr;</button>
+    <div style="text-align: center;">
+      <button class="btn-secondary" onclick="goToStep1()">&larr; Sözleşme metnine geri dön</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function validateStep1() {
+    const r1 = document.getElementById('req1').checked;
+    const r2 = document.getElementById('req2').checked;
+    document.getElementById('btnNext').disabled = !(r1 && r2);
+  }
+
+  function validateStep2() {
+    const rInfo = document.getElementById('reqInfo').checked;
+    document.getElementById('btnFinish').disabled = !rInfo;
+  }
+
+  function goToStep2() {
+    document.getElementById('step1').classList.add('hidden');
+    document.getElementById('step2').classList.remove('hidden');
+    document.getElementById('ind1').classList.remove('step-active');
+    document.getElementById('ind2').classList.add('step-active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function goToStep1() {
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('step1').classList.remove('hidden');
+    document.getElementById('ind2').classList.remove('step-active');
+    document.getElementById('ind1').classList.add('step-active');
+  }
+
+  function finishProcess() {
+    const btn = document.getElementById('btnFinish');
+    btn.disabled = true;
+    btn.innerText = "Yönlendiriliyor...";
+    window.location.href = "https://elisyumplus.github.io/brkdemo2/";
+  }
+</script>
+
+</body>
+</html>
